@@ -1,0 +1,18 @@
+body{
+  background-color: #fbed7e;
+  background-image: linear-gradient(62deg, #fbed7e 0%, #c19938 100%);
+}
+
+.card{
+  background-color: #fbed7e;
+  background-image: linear-gradient(62deg, #fbed7e 0%, #c19938 100%);
+}
+
+#root{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main{
+  flex-grow: 1;
+}
