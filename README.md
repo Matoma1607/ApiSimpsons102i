@@ -1,8 +1,11 @@
-# React + Vite
+# API de Los Simpson
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+¡Bienvenido a la API de Los Simpson! Esta API muestra personajes de la famosa serie "Los Simpson" junto con una de sus frases célebres. Al presionar un botón, se generará una nueva frase de un personaje aleatorio.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Devuelve un personaje de Los Simpson con su imagen y una frase icónica.
+- Actualiza la frase y el personaje al presionar un botón.
+
+## Autor
+Matias Salazar
