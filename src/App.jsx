@@ -6,21 +6,28 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [frasePersonaje, setFrasePersonaje] = useState({})
+  const [frasePersonaje, setFrasePersonaje] = useState({});
 
-  useEffect(()=>{
+  useEffect(() => {
     consultarApi();
-  },[])
+  }, []);
 
-  const consultarApi = async() =>{
-    console.log('hola mundo')
-    //enviar una solicitud get
-    const respuesta = await fetch('https://thesimpsonsquoteapi.glitch.me/quotes')
-    const datos = await respuesta.json();
-    //respuesta
-    //almacenar la respuesta en el estado
-    setFrasePersonaje(datos[0])
-  }
+  const consultarApi = async () => {
+    try {
+      console.log("hola mundo");
+      //enviar una solicitud get
+      const respuesta = await fetch(
+        "https://thesimpsonsquoteapi.glitch.me/quotes"
+      );
+      const datos = await respuesta.json();
+      console.log(respuesta);
+      if (respuesta.status === 200) {
+        setFrasePersonaje(datos[0]);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <Container className="text-center my-5">
