@@ -1,4 +1,4 @@
-import { Button, Container } from "react-bootstrap";
+import { Button, Container, Spinner } from "react-bootstrap";
 import "./App.css";
 import Frase from "./components/Frase";
 import logo from "./assets/logosimpson.png";
@@ -7,13 +7,14 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [frasePersonaje, setFrasePersonaje] = useState({});
-
+  const [mostrarSpinner, setMostrarSpinner] = useState(true);
   useEffect(() => {
     consultarApi();
   }, []);
 
   const consultarApi = async () => {
     try {
+      setMostrarSpinner(true)
       console.log("hola mundo");
       //enviar una solicitud get
       const respuesta = await fetch(
@@ -23,6 +24,7 @@ function App() {
       console.log(respuesta);
       if (respuesta.status === 200) {
         setFrasePersonaje(datos[0]);
+        setMostrarSpinner(false)
       }
     } catch (error) {
       console.log(error);
@@ -32,7 +34,14 @@ function App() {
   return (
     <Container className="text-center my-5">
       <img src={logo} alt="logo simpsons" className="w-50 mb-4" />
-      <Frase frasePersonaje={frasePersonaje}></Frase>
+      {mostrarSpinner ? (
+        <div>
+          <Spinner animation="border" variant="primary" />
+        </div>
+      ) : (
+        <Frase frasePersonaje={frasePersonaje}></Frase>
+      )}
+
       <Button variant="warning" className="mt-4" onClick={consultarApi}>
         Enviar
       </Button>
